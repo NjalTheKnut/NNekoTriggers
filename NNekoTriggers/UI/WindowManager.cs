@@ -24,13 +24,9 @@ namespace NNekoTriggers.UI
         private readonly WindowSystem windowingSystem;
 
         public IDtrBarEntry RpOnlyEntry { get; } = Svc.DtrBar.Get("TTrig-RpOnly");
-
         public IDtrBarEntry RngEntry { get; } = Svc.DtrBar.Get("TTrig-RNG");
-
         public IDtrBarEntry ZoneEntry { get; } = Svc.DtrBar.Get("TTrig-Zone");
-
         public IDtrBarEntry GearsetEntry { get; } = Svc.DtrBar.Get("TTrig-Gearset");
-
         public IDtrBarEntry OverrideEntry { get; } = Svc.DtrBar.Get("TTrig-Override");
         public IDtrBarEntry OnLoginEntry { get; } = Svc.DtrBar.Get("TTrig-OnLogin");
 
@@ -64,7 +60,7 @@ namespace NNekoTriggers.UI
                         config.EnableRpOnly = !config.EnableRpOnly;
                         NNekoTriggers.PluginConfiguration.Save();
                         PluginLog.Information($"NNekoTriggers Roleplay Only Module {(config.EnableRpOnly ? "Enabled" : "Disabled")}");
-                        this.UpdateDtrEntry();
+                        NNekoTriggers.WindowManager.UpdateDtrEntry();
                     }
                 };
                 this.RngEntry.OnClick = ev =>
@@ -78,7 +74,7 @@ namespace NNekoTriggers.UI
                         config.EnableRNG = !config.EnableRNG;
                         NNekoTriggers.PluginConfiguration.Save();
                         PluginLog.Information($"NNekoTriggers RNG Module {(config.EnableRNG ? "Enabled" : "Disabled")}");
-                        this.UpdateDtrEntry();
+                        NNekoTriggers.WindowManager.UpdateDtrEntry();
                     }
                 };
                 this.ZoneEntry.OnClick = ev =>
@@ -92,7 +88,7 @@ namespace NNekoTriggers.UI
                         config.EnableZones = !config.EnableZones;
                         NNekoTriggers.PluginConfiguration.Save();
                         PluginLog.Information($"NNekoTriggers Territory Module {(config.EnableZones ? "Enabled" : "Disabled")}");
-                        this.UpdateDtrEntry();
+                        NNekoTriggers.WindowManager.UpdateDtrEntry();
                     }
                 };
                 this.GearsetEntry.OnClick = ev =>
@@ -106,7 +102,7 @@ namespace NNekoTriggers.UI
                         config.EnableGset = !config.EnableGset;
                         NNekoTriggers.PluginConfiguration.Save();
                         PluginLog.Information($"NNekoTriggers Gearset Module {(config.EnableGset ? "Enabled" : "Disabled")}");
-                        this.UpdateDtrEntry();
+                        NNekoTriggers.WindowManager.UpdateDtrEntry();
                     }
                 };
                 this.OverrideEntry.OnClick = ev =>
@@ -120,7 +116,7 @@ namespace NNekoTriggers.UI
                         config.EnableOcmd = !config.EnableOcmd;
                         NNekoTriggers.PluginConfiguration.Save();
                         PluginLog.Information($"NNekoTriggers Command Override Module {(config.EnableOcmd ? "Enabled" : "Disabled")}");
-                        this.UpdateDtrEntry();
+                        NNekoTriggers.WindowManager.UpdateDtrEntry();
                     }
                 };
                 this.OnLoginEntry.OnClick = ev =>
@@ -134,10 +130,10 @@ namespace NNekoTriggers.UI
                         config.EnableOnLogin = !config.EnableOnLogin;
                         NNekoTriggers.PluginConfiguration.Save();
                         PluginLog.Information($"NNekoTriggers Login Module {(config.EnableOnLogin ? "Enabled" : "Disabled")}");
-                        this.UpdateDtrEntry();
+                        NNekoTriggers.WindowManager.UpdateDtrEntry();
                     }
                 };
-                this.UpdateDtrEntry();
+                NNekoTriggers.WindowManager.UpdateDtrEntry();
             }
         }
 
